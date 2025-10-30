@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "Assessify - Coding Interview Assistant",
+  "version": "1.0.0",
+  "description": "Undetectable floating AI coding assistant that works on any website",
+  "permissions": [
+    "scripting",
+    "activeTab",
+    "storage",
+    "clipboardRead",
+    "clipboardWrite"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1:8000/*", "http://localhost:8000/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "all_frames": false
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["widget.html", "widget.css"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    },
+    "default_title": "Toggle Assessify Assistant"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}

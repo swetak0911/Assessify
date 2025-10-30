@@ -1,0 +1,182 @@
+<div id="afy-widget-root" style="display: none;">
+  <div id="afy-draggable-window" class="afy-widget-window">
+    <!-- Window Header -->
+    <div id="afy-header" class="afy-window-header">
+      <div class="afy-window-title">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+          <polyline points="7.5 4.21 12 6.81 16.5 4.21"></polyline>
+          <polyline points="7.5 19.79 7.5 14.6 3 12"></polyline>
+          <polyline points="21 12 16.5 14.6 16.5 19.79"></polyline>
+          <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+          <line x1="12" y1="22.08" x2="12" y2="12"></line>
+        </svg>
+        Assessify Assistant
+      </div>
+      <div class="afy-window-controls">
+        <!-- Transparency Slider -->
+        <div class="afy-transparency-control">
+          <input type="range" id="afy-transparency-slider" class="afy-transparency-slider" min="50" max="100" value="98" />
+        </div>
+        
+        <!-- Minimize Button -->
+        <button id="afy-minimize-btn" class="afy-control-btn" title="Minimize">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+        </button>
+        
+        <!-- Close Button -->
+        <button id="afy-close-btn" class="afy-control-btn" title="Close">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Window Content -->
+    <div id="afy-content" class="afy-window-content">
+      <!-- Input Section -->
+      <div class="afy-input-section">
+        <!-- Tabs -->
+        <div class="afy-tabs">
+          <button class="afy-tab-btn active" data-tab="text">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 20h9"></path>
+              <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+            </svg>
+            Text
+          </button>
+          <button class="afy-tab-btn" data-tab="screenshot">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <circle cx="8.5" cy="8.5" r="1.5"></circle>
+              <polyline points="21 15 16 10 5 21"></polyline>
+            </svg>
+            Screenshot
+          </button>
+          <button class="afy-tab-btn" data-tab="voice">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+              <line x1="12" y1="19" x2="12" y2="23"></line>
+              <line x1="8" y1="23" x2="16" y2="23"></line>
+            </svg>
+            Voice
+          </button>
+          <button class="afy-tab-btn" data-tab="scan">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 7V5a2 2 0 0 1 2-2h2"></path>
+              <path d="M17 3h2a2 2 0 0 1 2 2v2"></path>
+              <path d="M21 17v2a2 2 0 0 1-2 2h-2"></path>
+              <path d="M7 21H5a2 2 0 0 1-2-2v-2"></path>
+              <line x1="10" y1="8" x2="10" y2="16"></line>
+              <line x1="14" y1="8" x2="14" y2="16"></line>
+            </svg>
+            Scan
+          </button>
+        </div>
+        
+        <!-- Tab Contents -->
+        <div id="afy-tab-text" class="afy-tab-content active">
+          <div class="afy-input-container">
+            <textarea id="afy-text-input" class="afy-textarea-input" placeholder="Paste your coding question here..."></textarea>
+          </div>
+          <button id="afy-paste-clipboard" class="afy-btn-secondary">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            Paste from Clipboard
+          </button>
+        </div>
+        
+        <div id="afy-tab-screenshot" class="afy-tab-content">
+          <div class="afy-screenshot-container">
+            <button id="afy-screenshot-btn" class="afy-screenshot-btn">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                <polyline points="21 15 16 10 5 21"></polyline>
+              </svg>
+              <div class="afy-screenshot-text">Capture Screenshot</div>
+              <div class="afy-screenshot-hint">Click to capture specific area</div>
+            </button>
+          </div>
+        </div>
+        
+        <div id="afy-tab-voice" class="afy-tab-content">
+          <div class="afy-audio-controls">
+            <button id="afy-record-btn" class="afy-record-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                <line x1="12" y1="19" x2="12" y2="23"></line>
+                <line x1="8" y1="23" x2="16" y2="23"></line>
+              </svg>
+              <span id="afy-record-text">Start Recording</span>
+            </button>
+          </div>
+          <div id="afy-transcript-box" class="afy-transcript-box">Transcript will appear here...</div>
+        </div>
+        
+        <div id="afy-tab-scan" class="afy-tab-content">
+          <div class="afy-scan-container">
+            <button id="afy-scan-btn" class="afy-scan-btn">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 7V5a2 2 0 0 1 2-2h2"></path>
+                <path d="M17 3h2a2 2 0 0 1 2 2v2"></path>
+                <path d="M21 17v2a2 2 0 0 1-2 2h-2"></path>
+                <path d="M7 21H5a2 2 0 0 1-2-2v-2"></path>
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+              </svg>
+              <div class="afy-scan-text">Scan Full Screen</div>
+              <div class="afy-scan-hint">Captures entire screen with OCR</div>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Model Selector -->
+        <div class="afy-model-selector">
+          <select id="afy-provider-select" class="afy-model-select">
+            <option value="openai">OpenAI</option>
+            <option value="anthropic">Anthropic</option>
+            <option value="gemini">Google Gemini</option>
+            <option value="deepseek">DeepSeek</option>
+          </select>
+          <select id="afy-model-select" class="afy-model-select">
+            <!-- Will be populated by JS -->
+          </select>
+        </div>
+        
+        <!-- Solve Button -->
+        <button id="afy-solve-btn" class="afy-solve-btn" disabled>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+          Generate Solution
+        </button>
+      </div>
+      
+      <!-- Output Section -->
+      <div id="afy-output-section" class="afy-output-section" style="display: none;">
+        <div class="afy-output-header">
+          <div class="afy-output-title">Solution</div>
+          <button id="afy-copy-btn" class="afy-copy-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            Copy
+          </button>
+        </div>
+        <div id="afy-solution-text" class="afy-solution-text">No solution yet. Ask a question to get started!</div>
+      </div>
+    </div>
+    
+    <!-- Resize Handle -->
+    <div id="afy-resize-handle" class="afy-resize-handle"></div>
+  </div>
+</div>

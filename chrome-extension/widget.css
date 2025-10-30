@@ -1,0 +1,559 @@
+/* Reset and isolation for Assessify widget */
+#afy-widget-root {
+  all: initial;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#afy-widget-root * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Draggable Window */
+.afy-widget-window {
+  position: fixed;
+  top: 20%;
+  right: 20px;
+  width: 420px;
+  min-width: 320px;
+  min-height: 400px;
+  max-width: 90vw;
+  max-height: 90vh;
+  background: rgba(26, 26, 26, 0.98);
+  backdrop-filter: blur(16px);
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 1px rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  z-index: 2147483647;
+  resize: both;
+}
+
+/* Window Header */
+.afy-window-header {
+  background: #000000;
+  padding: 12px 16px;
+  cursor: move;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+}
+
+.afy-window-title {
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.afy-window-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.afy-control-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.afy-control-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Transparency Control */
+.afy-transparency-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.afy-transparency-slider {
+  width: 80px;
+  height: 4px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+.afy-transparency-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.afy-transparency-slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+}
+
+/* Window Content */
+.afy-window-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 16px;
+}
+
+.afy-window-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.afy-window-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.afy-window-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+.afy-window-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Input Section */
+.afy-input-section {
+  margin-bottom: 16px;
+}
+
+/* Tabs */
+.afy-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 12px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 8px;
+}
+
+.afy-tab-btn {
+  padding: 8px 12px;
+  border: none;
+  background: transparent;
+  color: #9ca3af;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.afy-tab-btn.active {
+  background: #1a1a1a;
+  color: white;
+}
+
+.afy-tab-btn:hover:not(.active) {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+/* Tab Content */
+.afy-tab-content {
+  display: none;
+  margin-bottom: 12px;
+}
+
+.afy-tab-content.active {
+  display: block;
+}
+
+/* Text Input */
+.afy-input-container {
+  margin-bottom: 12px;
+}
+
+.afy-textarea-input {
+  width: 100%;
+  min-height: 100px;
+  padding: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  border-radius: 10px;
+  font-size: 13px;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  resize: vertical;
+  transition: border 0.2s;
+}
+
+.afy-textarea-input::placeholder {
+  color: #6b7280;
+}
+
+.afy-textarea-input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.afy-btn-secondary {
+  width: 100%;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.afy-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Screenshot Container */
+.afy-screenshot-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 150px;
+}
+
+.afy-screenshot-btn {
+  width: 100%;
+  padding: 32px;
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.afy-screenshot-btn:hover:not(:disabled) {
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.afy-screenshot-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.afy-screenshot-text {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.afy-screenshot-hint {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+/* Scan Container */
+.afy-scan-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 150px;
+}
+
+.afy-scan-btn {
+  width: 100%;
+  padding: 32px;
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.afy-scan-btn:hover:not(:disabled) {
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.afy-scan-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.afy-scan-text {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.afy-scan-hint {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+/* Audio Controls */
+.afy-audio-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.afy-record-btn {
+  padding: 12px 24px;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+
+.afy-record-btn.recording {
+  background: #dc2626;
+  animation: afy-pulse 1.5s infinite;
+}
+
+.afy-record-btn:hover {
+  background: #dc2626;
+}
+
+@keyframes afy-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.afy-transcript-box {
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  font-size: 13px;
+  color: white;
+  min-height: 80px;
+  font-family: 'Fira Code', 'Courier New', monospace;
+}
+
+/* Model Selector */
+.afy-model-selector {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.afy-model-select {
+  flex: 1;
+  padding: 10px 12px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.afy-model-select option {
+  background: #1a1a1a;
+  color: white;
+}
+
+.afy-model-select:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Solve Button */
+.afy-solve-btn {
+  width: 100%;
+  padding: 12px;
+  background: #000000;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.afy-solve-btn:hover:not(:disabled) {
+  background: #1a1a1a;
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.afy-solve-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Output Section */
+.afy-output-section {
+  margin-top: 16px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  padding: 16px;
+  max-height: 400px;
+  overflow-y: auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.afy-output-section::-webkit-scrollbar {
+  width: 6px;
+}
+
+.afy-output-section::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.afy-output-section::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+.afy-output-section::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.afy-output-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.afy-output-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+}
+
+.afy-copy-btn {
+  padding: 6px 12px;
+  background: #1a1a1a;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.afy-copy-btn:hover {
+  background: #2a2a2a;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.afy-solution-text {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #e5e7eb;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Loading */
+.afy-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: white;
+  font-size: 13px;
+}
+
+.afy-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: afy-spin 0.8s linear infinite;
+}
+
+@keyframes afy-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Resize Handle */
+.afy-resize-handle {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  cursor: nwse-resize;
+  opacity: 0.3;
+}
+
+.afy-resize-handle::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
+}
+
+.afy-resize-handle:hover {
+  opacity: 0.6;
+}
